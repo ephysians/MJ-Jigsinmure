@@ -9,7 +9,7 @@ import img4 from "../../assets/img/img4.jpeg";
 import ImgMenu from "../../assets/img/ImgMenu.svg";
 import close from "../../assets/img/close.svg";
 import img6 from "../../assets/img/img6.jpg";
-import auntyjayz2 from "../../assets/Jigsinmur logos/auntyjayz2.jpg"
+import auntyjayz2 from "../../assets/Jigsinmur logos/auntyjayz2.jpg";
 import pp from "../../assets/img/pp.png";
 import YoutubeEmbed from "./YoutubeEmbed";
 import { Card } from "antd";
@@ -19,17 +19,13 @@ function App() {
   const [showFullText, setShowFullText] = useState(false);
   const [showSideBarMenu, setShowSideBarMenu] = React.useState(false);
 
-  
-
   const toggleSideBar = () => {
     setShowSideBarMenu((prevState) => !prevState);
   };
 
   const handleNavigationClick = () => {
-    setShowSideBarMenu(false); // Close the sidebar menu when a navigation link is clicked
+    setShowSideBarMenu(false); 
   };
-
- 
 
   const videoId = "EdcgHfIYL9M";
   const videoId1 = "0jIVO6zsrcc";
@@ -37,7 +33,7 @@ function App() {
   const emailButtonRef = useRef(null);
   const handleClick = () => {
     const email = "mailto:ruthinasconcept1@gmail.com";
-    window.location.href = email; // Redirect to email address
+    window.location.href = email; 
   };
 
   return (
@@ -52,17 +48,24 @@ function App() {
               duration={500}
               className="flex items-center w-48 h-48 cursor-pointer mt-2 px-8 absolute bottom-4 text-base lg:text-xl font-lato font-lato-regular"
             >
-              <img src={auntyjayz2} alt="site logo" />   
-              </Element>
-              <p className="text-green-800 px-12 pt-16 font-semibold font-lato ">JIGSINMUR</p>         
+              <img src={auntyjayz2} alt="site logo" />
+            </Element>
+            <p className="text-green-800 px-12 pt-16 font-semibold font-lato ">
+              JIGSINMUR
+            </p>
           </li>
           {/* Conditionally render hamburger menu for screen width less than 800px */}
           <li className="h-16 lg:hidden">
             <Element
               onClick={toggleSideBar}
-              className="flex items-center bg-green-800 mr-4 cursor-pointer px-2 rounded mt-4 py-1"
+              className="flex items-center bg-green-800 border-none mr-20 cursor-pointer px-4 rounded mt-4 py-2"
             >
-              <img src={ImgMenu} id="open-harmburger" alt="side menu" />
+              <img
+                src={ImgMenu}
+                id="open-harmburger"
+                alt="side menu"
+                style={{ filter: "invert(100%)" }}
+              />
             </Element>
           </li>
           <li className="h-16 hidden lg:block pt-4 mr-8 items-center justify-center">
@@ -132,7 +135,7 @@ function App() {
         </ul>
       </nav>
       <nav
-        className={`fixed top-0 right-0 h-screen w-64 z-50 text-white bg-white bg-opacity-20 shadow-lg backdrop-filter backdrop-blur-md ${
+        className={`fixed top-0 right-0 h-screen w-64 z-50 bg-white bg-opacity-20 shadow-lg backdrop-filter backdrop-blur-md ${
           showSideBarMenu ? "" : "hidden"
         }`}
       >
@@ -141,9 +144,14 @@ function App() {
           <li className="h-16 mr-auto">
             <Element
               onClick={toggleSideBar}
-              className="flex items-center bg-white cursor-pointer rounded mt-4 ml-6 px-1 mt-2 py-1"
+              className="flex items-center bg-green-800 border-none mr-20 cursor-pointer px-4 ml-6 rounded mt-4 py-2"
             >
-              <img src={close} id="close-harmburger" alt="side menu" />
+              <img
+                src={close}
+                id="close-harmburger"
+                alt="side menu"
+                style={{ filter: "invert(100%)" }}
+              />
             </Element>
           </li>
           {/* Navigation links */}
@@ -212,12 +220,19 @@ function App() {
 
       <Element name="home">
         <section className="h-screen relative">
-          <div className="absolute inset-0 bg-black "></div>
+          <div className="absolute inset-0 bg-black opacity-80"></div>{" "}
+          {/* Black overlay with opacity */}
           <div
             className={`absolute inset-0 bg-cover bg-no-repeat flex justify-center items-center text-white `}
-            style={{ backgroundImage: `url(${aloeferox})` }}
+            // style={{ backgroundImage: `url(${aloeferox})` }}
+            style={{
+              backgroundImage: `url(${aloeferox}), url(overlay.jpg) rgba(0, 0, 0, 0.3)`,
+              backgroundBlendMode: "multiply",
+            }}
           >
-            <div className=" relative text-center bottom-24 z-20 mix-blend-mode: normal bg-slate-700  rounded-md p-2">
+            <div className="relative text-center bottom-24 z-20 bg-slate-700 rounded-md p-2">
+              {" "}
+              {/* Adjust opacity here */}
               <h1 className="text-6xl mb-1 text-white font-lato font-lato-normal">
                 HI, I'M RUTHINAS
               </h1>
@@ -439,10 +454,11 @@ function App() {
           >
             <i class="fa-solid fa-brands fa-instagram rounded-md bg-neutral-700 p-4 m-1 hover:bg-gray-400"></i>
           </a>
-          <a href="https://wa.me/08182128516"
-           target="_blank"
-           rel="noopener noreferrer"
-           >
+          <a
+            href="https://wa.me/08182128516"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i class="fa-solid rounded-md fa-brands fa-whatsapp bg-neutral-700 p-4 m-1 hover:bg-gray-400"></i>
           </a>
         </div>
